@@ -8,7 +8,8 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import ListItem from './src/components/ListItem/ListItem'
+// import ListItem from './src/components/ListItem/ListItem'
+import ListItem from './src/components/ListItem/ListItem';
 
 // type Props = {};
 export default class App extends Component {
@@ -43,8 +44,9 @@ export default class App extends Component {
       return <ListItem 
                 key={i} 
                 placeName={place} 
-                onItemPressed={() => {alert('Item pressed - ID: ' + id)}}
+                onItemPressed={() => {this.onItemDeleted(i)}}
               />
+      
     });
 
     return (
@@ -66,7 +68,9 @@ export default class App extends Component {
 
         <View
           style={styles.listContainer}
-        >{placesOutput}</View>
+        >
+        {placesOutput}
+        </View>
       </View>
       
     );
